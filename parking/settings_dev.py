@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'parking_customers',
+    'drf_yasg2',
 ]
 
 MIDDLEWARE = [
