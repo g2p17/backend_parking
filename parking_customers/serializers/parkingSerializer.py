@@ -1,5 +1,5 @@
-from parking_customers.models.parking    import Parking
-from rest_framework                     import serializers
+from parking_customers.models.parking       import Parking
+from rest_framework                         import serializers
 
 class ParkingSerializer(serializers.ModelSerializer):
     class Meta:
