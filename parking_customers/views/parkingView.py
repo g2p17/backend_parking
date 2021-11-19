@@ -5,38 +5,62 @@ from rest_framework.response                            import Response
 from parking_customers.models.parking                   import Parking
 from parking_customers.serializers.parkingSerializer    import ParkingSerializer
 
-class ParkingCreateView(views.APIView):
+
+class ParkingCreateView(generics.CreateAPIView):
+    queryset           = Parking.objects.all()
+    serializer_class   = ParkingSerializer
     def post(self, request, *args, **kwargs):
-        print(kwargs)
+        '''
+        Create only one parking
+        '''
         serializer = ParkingSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=status.HTTP_201_CREATED)
+        return super().post(request, *args, **kwargs)
+
 
 class ParkingDetailView(generics.RetrieveAPIView):
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
     def get(self, request, *args, **kwargs):
+        '''
+        Get only one parking
+        '''
         return super().get(request, *args, **kwargs)
 
 class ParkingUpdateView(generics.UpdateAPIView):
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
     def update(self, request, *args, **kwargs):
+        '''
+        Update only one parking
+        '''
         return super().update(request, *args, **kwargs)
 
 class UserDeleteView(generics.DestroyAPIView):
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
     def delete(self, request, *args, **kwargs):
+        '''
+        Remove only one parking
+        '''
         return super().destroy(request, *args, **kwargs)
 
 class ListParkingView(generics.ListAPIView):
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
-    
     def get_queryset(self):
+        '''
+        Get a parking list by admin
+        '''
         queryset = Parking.objects.filter(admin_id=self.kwargs['admin_id']) 
-        #queryset = Parking.objects.filter(origin_account_id=self.kwargs['account']) id=account.user_id
         return queryset
 
+class ParkingsView(generics.ListAPIView):  
+    queryset           = Parking.objects.all()
+    serializer_class   = ParkingSerializer
+    def get_queryset(self):
+        '''
+        Get a list of all parking lots
+        '''
+        queryset = Parking.objects.all()
+        return queryset
