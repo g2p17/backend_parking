@@ -55,6 +55,16 @@ class ListParkingView(generics.ListAPIView):
         queryset = Parking.objects.filter(admin_id=self.kwargs['admin_id']) 
         return queryset
 
+class ListParking_placeView(generics.ListAPIView):
+    queryset           = Parking.objects.all()
+    serializer_class   = ParkingSerializer
+    def get_queryset(self):
+        '''
+        Get a parking list by parking_place
+        '''
+        queryset = Parking.objects.filter(parking_place=self.kwargs['parking_place']) 
+        return queryset
+
 class ParkingsView(generics.ListAPIView):  
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
