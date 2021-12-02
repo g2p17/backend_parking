@@ -6,7 +6,7 @@ class Parking(models.Model):
     '''
     id                              = models.AutoField(primary_key=True)
     admin_id                        = models.CharField(max_length = 50)
-    parking_place                   = models.CharField(max_length = 50)
+    parking_place                   = models.CharField(max_length = 50, unique=True)
     vehicle_slots                   = models.PositiveSmallIntegerField(default=0)
     motorcycles_slots               = models.PositiveSmallIntegerField(default=0)
     bicycles_slots                  = models.PositiveSmallIntegerField(default=0)

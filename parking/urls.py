@@ -41,10 +41,11 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     
     path('admin/', admin.site.urls),
-    path('parking/create/',                 parkingView.ParkingCreateView.as_view()), 
-    path('parking/<int:pk>/',               parkingView.ParkingDetailView.as_view()),
-    path('parking/update/<int:pk>/',        parkingView.ParkingUpdateView.as_view()),
-    path('parking/remove/<int:pk>/',        parkingView.UserDeleteView.as_view()),
-    path('parking/admin/<int:admin_id>/',   parkingView.ListParkingView.as_view()), 
-    path('parking/',                        parkingView.ParkingsView.as_view()),
+    path('parking/create/',                     parkingView.ParkingCreateView.as_view()), 
+    path('parking/<int:pk>/',                   parkingView.ParkingDetailView.as_view()),
+    path('parking/update/<int:pk>/',            parkingView.ParkingUpdateView.as_view()),
+    path('parking/remove/<int:pk>/',            parkingView.ParkingDeleteView.as_view()),
+    path('parking/admin/<int:admin_id>/',       parkingView.ListParkingView.as_view()), 
+    path('parking/place/<str:parking_place>/',  parkingView.ListParking_placeView.as_view()),
+    path('parkings/',                           parkingView.ParkingsView.as_view()),
 ]
