@@ -1,1 +1,1 @@
-from .parkingView   import  ParkingCreateView, ParkingDetailView, ParkingUpdateView, UserDeleteView, ListParkingView, ParkingsView, ListParking_placeView
+from .parkingView   import  ParkingCreateView, ParkingDetailView, ParkingUpdateView, ParkingDeleteView, ListParkingView, ParkingsView, ListParking_placeView

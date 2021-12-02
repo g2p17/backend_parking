@@ -36,7 +36,7 @@ class ParkingUpdateView(generics.UpdateAPIView):
         '''
         return super().update(request, *args, **kwargs)
 
-class UserDeleteView(generics.DestroyAPIView):
+class ParkingDeleteView(generics.DestroyAPIView):
     queryset           = Parking.objects.all()
     serializer_class   = ParkingSerializer
     def delete(self, request, *args, **kwargs):
