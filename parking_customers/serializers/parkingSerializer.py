@@ -10,6 +10,7 @@ class ParkingSerializer(serializers.ModelSerializer):
     def to_representation(self, obj):
         parking = Parking.objects.get(id=obj.id)
         return{
+            'id'                            : parking.id,
             'admin_id'                      : parking.admin_id,
             'parking_place'                 : parking.parking_place,
             'vehicle_slots'                 : parking.vehicle_slots,
