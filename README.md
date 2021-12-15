@@ -28,6 +28,8 @@ Note the (env) in front of the prompt. This indicates that this terminal session
 ## Usage
 Once pip has finished downloading the dependencies:
 ```bash
+(env) python manage.py makemigrations
+(env) python manage.py migrate
 (env) python manage.py runserver
 ```
 And navigate to http://127.0.0.1:8000
